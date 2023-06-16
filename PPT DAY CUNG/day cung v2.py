@@ -54,8 +54,8 @@ while True:
                 result = "x = " + str(x)
                 window["result"].update(result)
     if values["choose"] == "Epsi":
-        window["steps_text"].update(visible=True)
-        window["epsi_text"].update(visible=False)
+        window["steps_text"].update(visible=False)
+        window["epsi_text"].update(visible=True)
         window["steps"].update(visible=False)
         window["epsi"].update(visible=True)
         epsi = float(values["epsi"])
