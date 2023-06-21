@@ -32,7 +32,8 @@ layout = [
     [sg.Text('Lựa chọn:'), sg.Combo(['Epsilon', 'Số bước'], default_value='Epsilon', key='option')],
     [sg.Text('Nhập Epsilon/Số bước:', key='param_text'), sg.InputText(key='param_value',size=(15, 1))],
     [sg.Button('Tính')],
-    [sg.Output(size=(50, 10))]
+    [sg.Output(size=(50, 10))],
+    [sg.Text(text="by Trinh Minh Hieu - 11222359",justification="right",size=(50,0),expand_x=True,font=("Arial",8))]
 ]
 
 window = sg.Window('Phương pháp dây cung', layout)
