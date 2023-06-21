@@ -27,10 +27,10 @@ def secant_method(equation, x0, x1, epsilon=None, num_steps=None):
 
 layout = [
     [sg.Text('Phương trình:'), sg.InputText(key='equation', size=(30, 1),expand_x=True)],
-    [sg.Text('Giá trị ban đầu x0:'), sg.InputText(key='x0', size=(3, 1))],
-    [sg.Text('Giá trị ban đầu x1:'), sg.InputText(key='x1', size=(3, 1))],
+    [sg.Text('Giá trị ban đầu x0:'), sg.InputText(key='x0', size=(6, 1))],
+    [sg.Text('Giá trị ban đầu x1:'), sg.InputText(key='x1', size=(6, 1))],
     [sg.Text('Lựa chọn:'), sg.Combo(['Epsilon', 'Số bước'], default_value='Epsilon', key='option')],
-    [sg.Text('Nhập Epsilon/Số bước:', key='param_text'), sg.InputText(key='param_value',size=(7, 1))],
+    [sg.Text('Nhập Epsilon/Số bước:', key='param_text'), sg.InputText(key='param_value',size=(15, 1))],
     [sg.Button('Tính')],
     [sg.Output(size=(50, 10))]
 ]
@@ -53,8 +53,9 @@ while True:
         num_steps = int(param_value) if option == 'Số bước' else None #num_steps = giá trị của số bước nếu lựa chọn là số bước
 
         results = secant_method(equation, x0, x1, epsilon, num_steps)
-
-        for i, x in enumerate(results): #enumerate dạng map/dict trong python, ở đây là (0, x0), (1, x1), (2, x2)
-            print(f'Bước {i+1}: x = {x}')
-
+        if num_steps is not None: #nếu số bước được chọn
+            for i, x in enumerate(results): #enumerate kiểu range() nhưng dạng map/dict trong python, ở đây là (0, x0), (1, x1), (2, x2)
+                print(f'Bước {i+1}: x = {x}')
+        else: #nếu epsilon được chọn
+            print(f'x = {results}') #in ra kết quả cuối
 window.close()
