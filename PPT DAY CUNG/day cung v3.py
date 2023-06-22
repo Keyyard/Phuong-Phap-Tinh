@@ -55,8 +55,13 @@ while True:
 
         results = secant_method(equation, x0, x1, epsilon, num_steps)
         if num_steps is not None: #nếu số bước được chọn
+            print ("===========================")
             for i, x in enumerate(results): #enumerate kiểu range() nhưng dạng map/dict trong python, ở đây là (0, x0), (1, x1), (2, x2)
                 print(f'Bước {i+1}: x = {x}')
+            print ("===========================")
         else: #nếu epsilon được chọn
+            print ("===========================")
             print(f'x = {results}') #in ra kết quả cuối
+            print ("===========================")
+
 window.close()
